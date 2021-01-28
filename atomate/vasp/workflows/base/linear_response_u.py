@@ -199,14 +199,14 @@ def get_wf_linear_response_u(structure, uis,
             # for LDAUL
             for i in range(num_perturb):
                 val_dict[k].update({"perturb"+str(i):-1})
-            for s in vis_ldau.poscar.site_symbols:
+            for s in vis_ldau.poscar.site_symbols[num_perturb:]:
                 l = -1
                 val_dict[k].update({s:l})
         else:
             # for LDAUU and LDAUJ
             for i in range(num_perturb):
                 val_dict[k].update({"perturb"+str(i):0})
-            for s in vis_ldau.poscar.site_symbols:
+            for s in vis_ldau.poscar.site_symbols[num_perturb:]:
                 v = 0
                 val_dict[k].update({s:v})
         uis_ldau.update({k:val_dict[k].copy()})
